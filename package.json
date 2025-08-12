@@ -44,6 +44,6 @@
     "shiki": "^3.2.1",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.2.4",
-    "typescript": "^5"
+    "typescript": "^5.9.2"
   }
 }
