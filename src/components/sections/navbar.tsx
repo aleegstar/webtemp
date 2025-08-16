@@ -6,7 +6,13 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion, useScroll } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  Variants,
+  Transition,
+} from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -14,38 +20,38 @@ const INITIAL_WIDTH = "70rem";
 const MAX_WIDTH = "800px";
 
 // Animation variants
-const overlayVariants = {
+const overlayVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
   exit: { opacity: 0 },
 };
 
-const drawerVariants = {
+const drawerVariants: Variants = {
   hidden: { opacity: 0, y: 100 },
   visible: {
     opacity: 1,
     y: 0,
     rotate: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const, // wichtig: enger typisieren
       damping: 15,
       stiffness: 200,
       staggerChildren: 0.03,
-    },
+    } satisfies Transition,
   },
   exit: {
     opacity: 0,
     y: 100,
-    transition: { duration: 0.1 },
+    transition: { duration: 0.1 } as Transition,
   },
 };
 
-const drawerMenuContainerVariants = {
+const drawerMenuContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
 
-const drawerMenuVariants = {
+const drawerMenuVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
