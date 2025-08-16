@@ -6,6 +6,7 @@ import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Globe } from "@/components/ui/globe";
 import { cn } from "@/lib/utils";
 
+
 export const Highlight = ({
   children,
   className,
@@ -654,7 +655,7 @@ export const siteConfig = {
                 </defs>
               </svg>
             </div>
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
@@ -666,7 +667,7 @@ export const siteConfig = {
                 squareSize={2}
                 maxOpacity={0.5}
               />
-            </motion.div>
+            </div>
           </div>
         ),
 
